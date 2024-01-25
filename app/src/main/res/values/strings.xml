@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Nuevo</string>
+    <string name="content_description_image">Device Image</string>
+    <string name="title">iOS Device</string>
+    <string name="sub_title">Mobile App</string>
+    <string name="second_sub_title">Last Active: Today</string>
+</resources>
