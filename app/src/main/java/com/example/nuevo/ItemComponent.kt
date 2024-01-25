@@ -25,16 +25,24 @@ class ItemComponent @JvmOverloads constructor(
     @SuppressLint("Recycle", "CustomViewStyleable")
     fun postInitialization(attrs: AttributeSet?) {
 
-        val a = context.obtainStyledAttributes(attrs, R.styleable.ComponentItem)
+        val attributes = context.obtainStyledAttributes(attrs, R.styleable.ComponentItem)
+        attributes.apply {
+            binding.title.text = getString(R.styleable.ComponentItem_title)
+            binding.startIcon.setImageResource(
+                getResourceId(
+                    R.styleable.ComponentItem_start_icon,
+                    0
+                )
+            )
+            binding.endIcon.setImageResource(getResourceId(R.styleable.ComponentItem_end_icon, 0))
+            binding.subTitle.text = getString(R.styleable.ComponentItem_sub_title)
+            binding.secondSubTitle.text = getString(R.styleable.ComponentItem_second_sub_title)
+            setupItemStyle(ItemStyle.from(getInt(R.styleable.ComponentItem_item_style, 0)))
+        }
 
-        binding.title.text = a.getString(R.styleable.ComponentItem_title)
-        binding.startIcon.setImageResource(a.getResourceId(R.styleable.ComponentItem_start_icon, 0))
-        binding.endIcon.setImageResource(a.getResourceId(R.styleable.ComponentItem_end_icon, 0))
-        binding.subTitle.text = a.getString(R.styleable.ComponentItem_sub_title)
-        binding.secondSubTitle.text = a.getString(R.styleable.ComponentItem_second_sub_title)
         checkImages()
-        setupItemStyle(ItemStyle.from(a.getInt(R.styleable.ComponentItem_item_style, 0)))
-        a.recycle()
+
+        attributes.recycle()
     }
 
     private fun setupItemStyle(itemStyle: ItemStyle?) {
@@ -67,9 +75,11 @@ class ItemComponent @JvmOverloads constructor(
 
     fun setStartIcon(@DrawableRes image: Int) {
         binding.startIcon.setImageResource(image)
+        binding.startIcon.isVisible = true
     }
 
     fun setEndIcon(@DrawableRes image: Int) {
         binding.endIcon.setImageResource(image)
+        binding.endIcon.isVisible = true
     }
 }
