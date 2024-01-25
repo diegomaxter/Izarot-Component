@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="ComponentItem">
+    <declare-styleable name="ItemComponent">
         <attr name="item_style" format="enum">
             <enum name="rounded" value="0" />
             <enum name="default_style" value="1" />
@@ -10,5 +10,7 @@
         <attr name="title" format="string" />
         <attr name="sub_title" format="string" />
         <attr name="second_sub_title" format="string" />
+        <attr name="corners" format="float" />
+        <attr name="background_color" format="color" />
     </declare-styleable>
 </resources>

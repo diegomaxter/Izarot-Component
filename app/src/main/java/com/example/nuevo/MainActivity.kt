@@ -1,7 +1,6 @@
 package com.example.nuevo
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -19,5 +18,6 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         binding.myComponent.setTitle("Iphone")
+        binding.myComponent.setCornerRadius(20f)
     }
 }

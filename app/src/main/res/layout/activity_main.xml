@@ -25,6 +25,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:second_sub_title="@string/second_sub_title"
+        app:corners="@dimen/space_2x"
+        app:background_color="@color/lightGray"
         app:start_icon="@drawable/ic_launcher_background"
         app:sub_title="@string/sub_title"
         app:title="@string/title" />
